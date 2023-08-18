@@ -1,0 +1,11 @@
+{
+    "room_id":27526833,
+
+    "URL_handel_msg": "http://localhost:12308/recive_data/",
+    "URL_DB": "http://localhost:12309/database/",
+    "URL_chart": "http://localhost:12310/data_chart/",
+    "URL_get_chart_data": "http://localhost:12310/get_chart_data/"
+
+    
+
+}
