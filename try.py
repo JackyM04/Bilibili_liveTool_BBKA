@@ -1,4 +1,9 @@
-dic_aasd = []
-dic_aasd.append(1)
-dic_aasd.pop(0)
-print(dic_aasd)
+list_abc = []
+if list_abc:
+    print("list_abc is not empty")
+    list_abc.append("a")
+else:
+    print("list_abc is empty")
+    list_abc.append("b")
+def asbd():
+    print("asbd")
