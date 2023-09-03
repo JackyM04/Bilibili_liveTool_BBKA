@@ -1,0 +1,17 @@
+.function-block11 {
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 200px;
+    height: 150px;
+    
+    grid-row: span 1;
+    grid-column: span 1;    
+    /* 添加其他你需要的样式，如阴影、颜色等 */
+}
+
+.function-block11:hover {
+    background-color: #f5f5f5;
+}
