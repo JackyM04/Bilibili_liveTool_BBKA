@@ -2,8 +2,11 @@
     display: grid;
     position: relative;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fill, 150px);
     gap: 20px;
     padding: 20px;
     max-height: 100%;
+    /* 居中 */
+    justify-items: center;
     /* 添加其他你需要的样式 */
 }
