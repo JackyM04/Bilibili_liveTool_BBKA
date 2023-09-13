@@ -1,17 +1,16 @@
 import React from "react";
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "./App.css";
-import Sidebar from "./components/main_page/Sidebar";
-import MainContent from "./components/main_page/MainContent";
-
+import MainContent from "./components/main_page";
+import Setting from "./components/setting_page/settingPage";
 function App() {
   return (
-    <BrowserRouter>
-      <div className="app">
-        <Sidebar />
-        <MainContent />
-      </div>
-    </BrowserRouter>
+    <Router>
+        <Routes>
+          <Route path="/" element={<MainContent />} />
+          <Route path="/setting" element={<Setting />} />
+        </Routes>
+    </Router>
   );
 }
 

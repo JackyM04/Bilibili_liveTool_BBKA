@@ -1,9 +1,10 @@
 import React, { useState }  from 'react';
 import './index.css';
 
-import FunctionBlock21 from '../../FunctionBlocks/ChartBlock21';
-import FunctionBlock11 from '../../FunctionBlocks/ChartBlock11';
-import ChartComponent from '../../FunctionMains/ChartComponent';
+import FunctionBlock21 from '../FunctionBlocks/ChartBlock21';
+import FunctionBlock11 from '../FunctionBlocks/ChartBlock11';
+import ChartComponent from '../FunctionMains/ChartComponent';
+import Sidebar from '../Sidebar';
 
 function MainContent() {
   // 例如，可以根据需要生成多个功能方块
@@ -33,18 +34,21 @@ function MainContent() {
   }
 
   return (
+    <div className="app">
+    <><Sidebar />
     <div className="main-content">
       {blocks.map((bloc, index) => {
-      switch (bloc.componentType) {
-        case "type21":
-          return <FunctionBlock21 key={index} {...bloc} />;
-        case "type11":
-          return <FunctionBlock11 key={index} {...bloc} />;
-        default:
-          return null; // 或者返回其他默认组件
-      }
-    })}
+        switch (bloc.componentType) {
+          case "type21":
+            return <FunctionBlock21 key={index} {...bloc} />;
+          case "type11":
+            return <FunctionBlock11 key={index} {...bloc} />;
+          default:
+            return null; // 或者返回其他默认组件
+        }
+      })}
       {renderModal()}
+    </div></>
     </div>
   );
 }
