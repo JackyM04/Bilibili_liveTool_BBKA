@@ -2,7 +2,7 @@
 import asyncio
 import random
 import httpx
-import blivedm
+import blivedm_master.blivedm as blivedm
 import json
 
 with open('./config.json', 'r', encoding='utf-8') as f:
