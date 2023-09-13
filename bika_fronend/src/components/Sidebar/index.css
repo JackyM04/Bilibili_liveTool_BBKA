@@ -7,29 +7,30 @@
     position: relative;
     margin: 5px;
     display: grid;
-    grid-template-rows: 1fr auto;  /* 1fr 表示菜单占据可用空间，auto 表示按钮使用它所需的空间 */
+    grid-template-rows: repeat(auto-fill, minmax(50px, 1fr));
       /* 网格间隙 */
     border: 0px solid #828282;
     border-radius: 10px;
 }
 
-.sidebar-menu {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;  /* 重置默认的 margin */
+.sidebar:hover {
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
 }
 
-.sidebar-menu li {
-    margin: 10px 0;
+.setting-button {
+    /* 移除位置相关的样式，因为我们现在使用网格布局 */
+    height: 40px;
+    margin: 5px;
+    border-radius: 50%;
 }
 
-.sidebar-menu a {
-    text-decoration: none;
-    color: #333;
+.setting-button:hover {
+    background-color: #45a049; /* 按钮悬停颜色 */
 }
 
 .main-page-button {
     /* 移除位置相关的样式，因为我们现在使用网格布局 */
+    grid-row: -2 / -1;
     height: 40px;
     margin: 5px;
     border-radius: 50%;

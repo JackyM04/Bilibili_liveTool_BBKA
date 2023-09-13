@@ -4,9 +4,11 @@ import random
 import httpx
 import blivedm
 import json
+
 with open('./config.json', 'r', encoding='utf-8') as f:
     config = json.load(f)
-
+with open('./router.json', 'r', encoding='utf-8') as f:
+    router = json.load(f)
 # 直播间ID的取值看直播间URL
 TEST_ROOM_IDS = [
     config['room_id']
@@ -69,8 +71,8 @@ class MyHandler(blivedm.BaseHandler):
     #           f" uname={command['data']['uname']}")
     # _CMD_CALLBACK_DICT['INTERACT_WORD'] = __interact_word_callback  # noqa
     def __init__(self) -> None:
-        global config
-        self.data = config
+        global router
+        self.data = router
     async def _on_heartbeat(self, client: blivedm.BLiveClient, message: blivedm.HeartbeatMessage):
         print(f'[{client.room_id}] 当前人气值：{message.popularity}')
 
