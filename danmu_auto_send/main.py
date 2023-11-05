@@ -16,14 +16,11 @@ with open('./config.json', 'r', encoding='utf-8') as f:
 
 ROOM_IDS = config['room_id']
 
-Threshold = 15
+Threshold = config["danmu_send_thershold"]
 
 now = datetime.now()
 # 自动发送的弹幕内容
-list_text = ["‘测试’免费人气票什么的拜托各位送一送！",
-             "‘测试’关注咔比大王 咔，老板大气 咔",
-             "‘测试’欢迎大家进入直播间，这是测试",
-             ]
+list_text = config["danmu_list"]
 
 class Item(BaseModel):
     data: dict
