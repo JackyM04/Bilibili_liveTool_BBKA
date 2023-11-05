@@ -5,7 +5,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from danmu_analysis.danmu_analysis_main import router as danmu_analysis_router
 from DB.DB_main import router as DB_router
 from src.setting import router as setting_router
+from danmu_auto_send.main import router as danmu_auto_send_router
 from blivedm_master.main_bilibili_msg import main as blivedm_main
+
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -16,8 +18,10 @@ app.add_middleware(
 )
 
 app.include_router(danmu_analysis_router)
-app.include_router(DB_router)
+# app.include_router(DB_router)
 app.include_router(setting_router)
+app.include_router(danmu_auto_send_router)
+
 
 
 
