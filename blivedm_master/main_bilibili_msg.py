@@ -116,6 +116,9 @@ class MyHandler(blivedm.BaseHandler):
         with httpx.Client() as http_client:
             response = http_client.post(self.data['URL_chart'], json=fans_send_data)
             print(response.text)
+        with httpx.Client() as http_client:
+            response = http_client.post(self.data['URL_send_danmu_frequency'], json=fans_send_data)
+            print(response.text)
         print(f'[{client.room_id}] {message.uname}：{message.msg}')
 
     def _on_gift(self, client: blivedm.BLiveClient, message: web_models.GiftMessage):

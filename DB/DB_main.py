@@ -3,6 +3,8 @@ import json
 import uvicorn
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
+import asyncio
+
 
 class DB:
     def __init__(self):
