@@ -6,7 +6,7 @@ function ChartComponent() {
 
   useEffect(() => {
     const fetchDataAndDrawChart = () => {
-      fetch('http://127.0.0.1:12310/get_chart_data/')
+      fetch('http://127.0.0.1:12308/get_chart_data/')
           .then(response => {
               if (!response.ok) {
                   throw new Error('Network response was not ok');

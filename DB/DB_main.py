@@ -1,9 +1,9 @@
 import os
 import json
 import uvicorn
-from fastapi import FastAPI, HTTPException
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from fastapi.middleware.cors import CORSMiddleware
+
 class DB:
     def __init__(self):
         self.data = {}
@@ -50,30 +50,24 @@ class sorted_list_DB_type:
 
 
 
-app = FastAPI()
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # 允许所有来源。在生产环境中，您应该指定具体的来源。
-    allow_credentials=True,
-    allow_methods=["*"],  # 允许所有方法，如 "GET", "POST", "PUT", "DELETE", "OPTIONS"
-    allow_headers=["*"],
-)
-@app.on_event("startup")
-def startup_event():
-    global db
-    filename = "db.json"
-    if os.path.exists(filename):
-        with open('db.json', 'r') as file:
-            data = json.load(file)
-    else:
-        print("db.json not found, creating new db.json")
-        with open('db.json', 'w') as file:
-            json.dump({}, file)
-        data = {}
-    db = DB()
-    #恢复数据库
-    db.data = data
-    return
+router = APIRouter()
+
+# @router.on_event("startup")
+# def startup_event():
+#     global db
+#     filename = "db.json"
+#     if os.path.exists(filename):
+#         with open('db.json', 'r') as file:
+#             data = json.load(file)
+#     else:
+#         print("db.json not found, creating new db.json")
+#         with open('db.json', 'w') as file:
+#             json.dump({}, file)
+#         data = {}
+#     db = DB()
+#     #恢复数据库
+#     db.data = data
+#     return
 
 # @app.on_event("shutdown")
 # def shutdown_event():
@@ -85,7 +79,7 @@ class Item(BaseModel):
     name_DB: str
     action_DB: str
     value: dict
-@app.post("/database/")
+@router.post("/database/")
 async def use_DB(
     data: Item
     ):
@@ -114,5 +108,3 @@ async def use_DB(
     else:
         return {"message": "action_DB not found"}
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=12309)
