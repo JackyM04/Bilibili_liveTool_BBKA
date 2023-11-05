@@ -1,18 +1,11 @@
-from fastapi import FastAPI
+from fastapi import APIRouter
 from pydantic import BaseModel
-from fastapi.middleware.cors import CORSMiddleware
 import os
 import json
 import httpx
 
-app = FastAPI()
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # 允许所有来源。在生产环境中，您应该指定具体的来源。
-    allow_credentials=True,
-    allow_methods=["*"],  # 允许所有方法，如 "GET", "POST", "PUT", "DELETE", "OPTIONS"
-    allow_headers=["*"],
-)
+router = APIRouter()
+
 
 with open('./config.json', 'r', encoding='utf-8') as f:
     config = json.load(f)
@@ -20,7 +13,7 @@ with open('./config.json', 'r', encoding='utf-8') as f:
 class Item(BaseModel):
     roomid: str
 
-@app.post("/setting/")
+@router.post("/setting/")
 async def setting(data: Item):
     try:
         room_id = data.roomid
@@ -36,6 +29,3 @@ async def setting(data: Item):
     except Exception as e:
         return {"message": str(e)}
     
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=12311)
