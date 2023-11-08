@@ -20,7 +20,7 @@ app.add_middleware(
 app.include_router(danmu_analysis_router)
 # app.include_router(DB_router)
 app.include_router(setting_router)
-app.include_router(danmu_auto_send_router)
+# app.include_router(danmu_auto_send_router)
 
 
 
