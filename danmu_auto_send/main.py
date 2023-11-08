@@ -81,17 +81,17 @@ def send():
         'color':'16777215',
         'mode': '1',
         'fontsize': '25',
-        'rnd': '1699185762',
+        'rnd': '输入你的rnd',
         'roomid': ROOM_IDS,
-        'csrf': '8ee39866fab5e88c9edda82644b36546',
-        'csrf_token': '8ee39866fab5e88c9edda82644b36546',
+        'csrf': '输入你的csrf',
+        'csrf_token': '输入你的csrf_token',
     }
 
     headers = {
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36',
         'referer': 'https://live.bilibili.com/8669571?from=search&seid=1038534937018518859&spm_id_from=333.337.0.0',
         'origin': 'https://live.bilibili.com',
-        'cookie': "buvid3=7D5C990E-273E-2FC6-C074-42A0AE600BEB27305infoc; b_nut=1669110027; i-wanna-go-back=-1; _uuid=624256102-52E9-B787-10D22-DAD996A108105D26501infoc; buvid4=A17D5F52-AEE1-6F4D-C71C-5188F876EC5D31482-022071401-hsC6fRrGrTUQxQL2gVSh0A%3D%3D; buvid_fp_plain=undefined; nostalgia_conf=-1; rpdid=|(umR~luuumJ0J'uYYmuu|R|l; LIVE_BUVID=AUTO6616691264158302; hit-dyn-v2=1; blackside_state=0; b_ut=5; CURRENT_BLACKGAP=0; hit-new-style-dyn=1; CURRENT_PID=e933a510-c89d-11ed-a55a-779d7f10745c; FEED_LIVE_VERSION=V8; CURRENT_FNVAL=4048; SESSDATA=a6328ac9%2C1707740195%2Cf8c05%2A827anwP4SKEHYEgZdlaeHJUGJxpdEBRvn1-zphVJDDX2ogcakZ5MD99gSab977WWpVv4R75gAASQA; bili_jct=8ee39866fab5e88c9edda82644b36546; DedeUserID=180413373; DedeUserID__ckMd5=0d38437489d60a69; sid=8b95ah2u; _ga=GA1.1.1349167444.1695543557; _ga_HE7QWR90TV=GS1.1.1695543557.1.1.1695543627.0.0.0; header_theme_version=CLOSE; enable_web_push=DISABLE; CURRENT_QUALITY=120; fingerprint=f1633472f79339f9acba452b2526e7d3; Hm_lvt_8a6e55dbd2870f0f5bc9194cddf32a02=1698578079,1698669714,1698928611,1699018979; PVID=1; buvid_fp=7D5C990E-273E-2FC6-C074-42A0AE600BEB27305infoc; bili_ticket=eyJhbGciOiJIUzI1NiIsImtpZCI6InMwMyIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTkzMDU0NTIsImlhdCI6MTY5OTA0NjE5MiwicGx0IjotMX0.cZqOJ7simkLjdRLIl6LWC2tI2WlEnOT5CP0gUiiMKLs; bili_ticket_expires=1699305392; bp_video_offset_180413373=860454358233382919; innersign=0; home_feed_column=4; browser_resolution=1078-751"
+        'cookie': "输入你的cookie"
     }
     result=requests.post(url=url,data=data,headers=headers)
     print(result.text)
